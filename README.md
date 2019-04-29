@@ -2,7 +2,7 @@
 
 This is a basic application template used as a base for future developments projects. This also demonstrates how data flows through the system from end to end.
 
-This applications is a .NET Core Web API application with a REACT / REDUX JS front end application. This hybrid format allows us to use data more dynamically. The backend database is using SQL Server 2017 with a code first approach. This means database migrations scripts are included alongside the Database Models and will need to be updated for any data models changes. 
+This applications is a .NET Core MVC Application. The backend database is using SQL Server with a code first approach. This means database migrations scripts are included alongside the Database Models and will need to be updated for any data models changes. 
 
 ## Requirements
 
@@ -64,10 +64,7 @@ Open the solution file and click the debug button as normal with .NET applicatio
 
 ## Resources
 
-This is a short list of links I used to help me get started writing this application with .NET Core, React, and Redux.
+This is a short list of links I used to help me get started writing this application with .NET Core.
 
 * [.NET Core Commands](https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x)
 * [EF Core Commands](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
-* [React JS](https://reactjs.org/docs/getting-started.html)
-* [Redux JS](https://redux.js.org/)
-* [Immer Js](https://github.com/mweststrate/immer)
