@@ -1,0 +1,20 @@
+﻿@model DatabaseModels.Item
+
+<li class="list-group-item">
+    <div class="btn-group float-right" role="group">
+        <a class="btn btn-outline-secondary btn-sm" asp-action="EditItem" asp-route-itemId="@Model.ItemId">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+        <a class="btn btn-outline-secondary btn-sm" asp-action="DeleteItem" asp-route-itemId="@Model.ItemId">
+            <i class="fas fa-times"></i>
+        </a>
+    </div>
+    <div class="py-1">
+        @if (Model.Quantity > 0)
+        {
+            <span class="badge badge-primary badge-pill">@Model.Quantity</span>
+        }
+        @Model.ItemName
+    </div>
+    <div class="clearfix"></div>
+</li>

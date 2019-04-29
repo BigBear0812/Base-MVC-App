@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DatabaseModels.List>
+
+@{
+    ViewData["Title"] = "To Do Lists";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p>This component demonstrates fetching data from the database.</p>
+<p>
+    <a class="btn btn-outline-secondary btn-sm" asp-action="CreateList"><i class="fas fa-plus"></i> List</a>
+</p>
+@foreach (var list in Model)
+{
+    <partial name="_List" model="@list"/>
+}
