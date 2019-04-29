@@ -14,9 +14,9 @@ namespace RepositoryLogic
             _context = context;
         }
 
-        public List<List> GetAllListsAndItems()
+        public List<ToDoList> GetAllListsAndItems()
         {
-            return _context.Lists.Include(l => l.Items).ToList();
+            return _context.ToDoLists.Include(l => l.Items).ToList();
         }
     }
 }

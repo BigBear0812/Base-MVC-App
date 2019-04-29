@@ -18,7 +18,7 @@ namespace DatabaseModels.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DatabaseModels.Item", b =>
+            modelBuilder.Entity("DatabaseModels.ToDoItem", b =>
                 {
                     b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd()
@@ -34,10 +34,10 @@ namespace DatabaseModels.Migrations
 
                     b.HasIndex("ListId");
 
-                    b.ToTable("Items");
+                    b.ToTable("ToDoItems");
                 });
 
-            modelBuilder.Entity("DatabaseModels.List", b =>
+            modelBuilder.Entity("DatabaseModels.ToDoList", b =>
                 {
                     b.Property<int>("ListId")
                         .ValueGeneratedOnAdd()
@@ -47,12 +47,12 @@ namespace DatabaseModels.Migrations
 
                     b.HasKey("ListId");
 
-                    b.ToTable("Lists");
+                    b.ToTable("ToDoLists");
                 });
 
-            modelBuilder.Entity("DatabaseModels.Item", b =>
+            modelBuilder.Entity("DatabaseModels.ToDoItem", b =>
                 {
-                    b.HasOne("DatabaseModels.List")
+                    b.HasOne("DatabaseModels.ToDoList")
                         .WithMany("Items")
                         .HasForeignKey("ListId")
                         .OnDelete(DeleteBehavior.Cascade);

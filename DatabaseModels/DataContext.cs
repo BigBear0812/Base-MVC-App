@@ -9,7 +9,7 @@ namespace DatabaseModels
             : base(options)
         { }
 
-        public DbSet<List> Lists { get; set; }
-        public DbSet<Item> Items { get; set; }
+        public DbSet<ToDoList> ToDoLists { get; set; }
+        public DbSet<ToDoItem> ToDoItems { get; set; }
     }
 }

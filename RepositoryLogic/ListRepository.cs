@@ -13,39 +13,35 @@ namespace RepositoryLogic
             _context = context;
         }
 
-        public List GetList(int id)
+        public ToDoList GetList(int id)
         {
-            return _context.Lists.FirstOrDefault(l => l.ListId == id);
+            return _context.ToDoLists.FirstOrDefault(l => l.ListId == id);
         }
 
-        public List CreateList(string name)
+        public ToDoList CreateList(ToDoList toDoList)
         {
-            var list = new List
-            {
-                ListName = name
-            };
-            _context.Lists.Add(list);
+            _context.ToDoLists.Add(toDoList);
             _context.SaveChanges();
-            return list;
+            return toDoList;
         }
 
-        public List DeleteList(int listId)
+        public ToDoList DeleteList(int listId)
         {
-            var delete = _context.Lists.FirstOrDefault(l => l.ListId == listId);
+            var delete = _context.ToDoLists.FirstOrDefault(l => l.ListId == listId);
             if (delete != null)
             {
-                _context.Lists.Remove(delete);
+                _context.ToDoLists.Remove(delete);
                 _context.SaveChanges();
                 return delete;
             }
             return null;
         }
 
-        public List UpdateList(List updatedList)
+        public ToDoList UpdateList(ToDoList updatedToDoList)
         {
-            _context.Update(updatedList);
+            _context.Update(updatedToDoList);
             _context.SaveChanges();
-            return updatedList;
+            return updatedToDoList;
         }
     }
 }

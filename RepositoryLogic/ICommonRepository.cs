@@ -5,6 +5,6 @@ namespace RepositoryLogic
 {
     public interface ICommonRepository
     {
-        List<List> GetAllListsAndItems();
+        List<ToDoList> GetAllListsAndItems();
     }
 }

@@ -5,11 +5,11 @@ namespace RepositoryLogic
 {
     public interface IItemRepository
     {
-        Item GetItem(int id);
-        Item CreateItem(int listId, string name, int quantity);
-        IEnumerable<Item> GetListItems(int listId);
-        Item DeleteItem(int itemId);
-        IEnumerable<Item> DeleteItems(IEnumerable<Item> items);
-        Item UpdateItem(Item updatedItem);
+        ToDoItem GetItem(int id);
+        ToDoItem CreateItem(ToDoItem toDoItem);
+        IEnumerable<ToDoItem> GetListItems(int listId);
+        ToDoItem DeleteItem(int itemId);
+        IEnumerable<ToDoItem> DeleteItems(IEnumerable<ToDoItem> items);
+        ToDoItem UpdateItem(ToDoItem updatedToDoItem);
     }
 }

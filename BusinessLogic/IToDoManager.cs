@@ -6,14 +6,14 @@ namespace BusinessLogic
 {
     public interface IToDoManager
     {
-        List<List> GetAllListsAndItems();
-        List GetList(int id);
-        Item GetItem(int id);
-        List CreateNewList(string name);
-        Item CreateNewItem(int listId, string name, int quantity);
-        List DeleteList(int listId);
-        Item DeleteItem(int itemId);
-        List UpdateList(List updatedList);
-        Item UpdateItem(Item updatedItem);
+        List<ToDoList> GetAllListsAndItems();
+        ToDoList GetList(int id);
+        ToDoItem GetItem(int id);
+        ToDoList CreateNewList(ToDoList toDoList);
+        ToDoItem CreateNewItem(ToDoItem toDoItem);
+        ToDoList DeleteList(int listId);
+        ToDoItem DeleteItem(int itemId);
+        ToDoList UpdateList(ToDoList updatedToDoList);
+        ToDoItem UpdateItem(ToDoItem updatedToDoItem);
     }
 }

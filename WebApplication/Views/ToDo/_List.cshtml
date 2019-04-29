@@ -1,4 +1,4 @@
-﻿@model DatabaseModels.List
+﻿@model DatabaseModels.ToDoList
 
 <div>
     <div class="mb-1">
@@ -15,7 +15,7 @@
             <i class="fas fa-plus"></i> Item
         </a>
     </div>
-    <ul clas="list-group">
+    <ul clas="toDoList-group">
         @foreach (var item in Model.Items)
         {
             <partial name="_Item" model="@item" />

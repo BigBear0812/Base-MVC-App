@@ -7,8 +7,8 @@ This applications is a .NET Core Web API application with a REACT / REDUX JS fro
 ## Requirements
 
 * .NET Core 2.1
-* NPM 6.4.1 (Node 10.15.3 - Latest LTS version)
-* SQL Server 2017 CU 13 (KB 4466404)
+* NuGet
+* SQL Server 2008 or newer
 
 ## Installing Database from CMD
 

@@ -5,9 +5,9 @@ namespace RepositoryLogic
 {
     public interface IListRepository
     {
-        List GetList(int id);
-        List CreateList(string name);
-        List DeleteList(int listId);
-        List UpdateList(List updatedList);
+        ToDoList GetList(int id);
+        ToDoList CreateList(ToDoList toDoList);
+        ToDoList DeleteList(int listId);
+        ToDoList UpdateList(ToDoList updatedToDoList);
     }
 }

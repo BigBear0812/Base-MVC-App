@@ -17,51 +17,51 @@ namespace BusinessLogic
             _commonRepo = commonRepo;
         }
 
-        public List<List> GetAllListsAndItems()
+        public List<ToDoList> GetAllListsAndItems()
         {
             return _commonRepo.GetAllListsAndItems();
         }
 
-        public List GetList(int id)
+        public ToDoList GetList(int id)
         {
             return _listRepo.GetList(id);
         }
 
-        public Item GetItem(int id)
+        public ToDoItem GetItem(int id)
         {
             return _itemRepo.GetItem(id);
         }
 
-        public List CreateNewList(string name)
+        public ToDoList CreateNewList(ToDoList toDoList)
         {
-            return _listRepo.CreateList(name);
+            return _listRepo.CreateList(toDoList);
         }
 
-        public Item CreateNewItem(int listId, string name, int quantity)
+        public ToDoItem CreateNewItem(ToDoItem toDoItem)
         {
-            return _itemRepo.CreateItem(listId, name, quantity);
+            return _itemRepo.CreateItem(toDoItem);
         }
 
-        public List DeleteList(int listId)
+        public ToDoList DeleteList(int listId)
         {
             var items = _itemRepo.GetListItems(listId);
             _itemRepo.DeleteItems(items);
             return _listRepo.DeleteList(listId);
         }
 
-        public Item DeleteItem(int itemId)
+        public ToDoItem DeleteItem(int itemId)
         {
             return _itemRepo.DeleteItem(itemId);
         }
 
-        public List UpdateList(List updatedList)
+        public ToDoList UpdateList(ToDoList updatedToDoList)
         {
-            return _listRepo.UpdateList(updatedList);
+            return _listRepo.UpdateList(updatedToDoList);
         }
 
-        public Item UpdateItem(Item updatedItem)
+        public ToDoItem UpdateItem(ToDoItem updatedToDoItem)
         {
-            return _itemRepo.UpdateItem(updatedItem);
+            return _itemRepo.UpdateItem(updatedToDoItem);
         }
     }
 }

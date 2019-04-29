@@ -13,54 +13,48 @@ namespace RepositoryLogic
             _context = context;
         }
 
-        public Item GetItem(int id)
+        public ToDoItem GetItem(int id)
         {
-            return _context.Items.FirstOrDefault(i => i.ItemId == id);
+            return _context.ToDoItems.FirstOrDefault(i => i.ItemId == id);
         }
 
-        public Item CreateItem(int listId, string name, int quantity)
+        public ToDoItem CreateItem(ToDoItem toDoItem)
         {
-            var item = new Item
-            {
-                ListId = listId,
-                ItemName = name,
-                Quantity = quantity,
-            };
-            _context.Items.Add(item);
+            _context.ToDoItems.Add(toDoItem);
             _context.SaveChanges();
-            return item;
+            return toDoItem;
         }
 
-        public IEnumerable<Item> GetListItems(int listId)
+        public IEnumerable<ToDoItem> GetListItems(int listId)
         {
-            return _context.Items.Where(i => i.ListId == listId).ToList();
+            return _context.ToDoItems.Where(i => i.ListId == listId).ToList();
         }
 
-        public Item DeleteItem(int itemId)
+        public ToDoItem DeleteItem(int itemId)
         {
-            var delete = _context.Items.FirstOrDefault(i => i.ItemId == itemId);
+            var delete = _context.ToDoItems.FirstOrDefault(i => i.ItemId == itemId);
             if (delete != null)
             {
-                _context.Items.Remove(delete);
+                _context.ToDoItems.Remove(delete);
                 _context.SaveChanges();
                 return delete;
             }
             return null;
         }
 
-        public IEnumerable<Item> DeleteItems(IEnumerable<Item> items)
+        public IEnumerable<ToDoItem> DeleteItems(IEnumerable<ToDoItem> items)
         {
             var deleteItems = items.ToList();
-            _context.Items.RemoveRange(deleteItems);
+            _context.ToDoItems.RemoveRange(deleteItems);
             _context.SaveChanges();
             return deleteItems;
         }
 
-        public Item UpdateItem(Item updatedItem)
+        public ToDoItem UpdateItem(ToDoItem updatedToDoItem)
         {
-            _context.Update(updatedItem);
+            _context.Update(updatedToDoItem);
             _context.SaveChanges();
-            return updatedItem;
+            return updatedToDoItem;
         }
     }
 }

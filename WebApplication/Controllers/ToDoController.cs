@@ -28,19 +28,16 @@ namespace WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateList(List list)
+        public IActionResult CreateList(ToDoList toDoList)
         {
             try
             {
-                _todoManager.CreateNewList(list.ListName);
+                _todoManager.CreateNewList(toDoList);
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return View(new List
-                {
-                    ListName = list.ListName
-                });
+                return View(toDoList);
             }
         }
 
@@ -50,7 +47,7 @@ namespace WebApplication.Controllers
 
         public IActionResult CreateItem(int listId)
         {
-            return View(new Item
+            return View(new ToDoItem
             {
                 ListId = listId
             });
@@ -58,21 +55,16 @@ namespace WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateItem(int listId, string itemName, int quantity = 0)
+        public IActionResult CreateItem(ToDoItem toDoItem)
         {
             try
             {
-                _todoManager.CreateNewItem(listId, itemName, quantity);
+                _todoManager.CreateNewItem(toDoItem);
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return View(new Item
-                {
-                    ListId = listId,
-                    ItemName = itemName,
-                    Quantity = quantity
-                });
+                return View(toDoItem);
             }
         }
 
@@ -87,16 +79,16 @@ namespace WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditList(List list)
+        public IActionResult EditList(ToDoList toDoList)
         {
             try
             {
-                _todoManager.UpdateList(list);
+                _todoManager.UpdateList(toDoList);
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return View(list);
+                return View(toDoList);
             }
         }
 
@@ -111,16 +103,16 @@ namespace WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditItem(Item item)
+        public IActionResult EditItem(ToDoItem toDoItem)
         {
             try
             {
-                _todoManager.UpdateItem(item);
+                _todoManager.UpdateItem(toDoItem);
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                return View(item);
+                return View(toDoItem);
             }
         }
 
